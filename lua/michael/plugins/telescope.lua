@@ -48,5 +48,6 @@ return {
 		keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Find string under cursor in cwd" })
 		keymap.set("n", "<leader>fb", builtin.git_bcommits, { desc = "Find string under cursor in cwd" })
 		keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Telescope: view git status for all files" })
+		keymap.set("n", "<leader>gc", builtin.git_bcommits, { desc = "Telescope: view all commits for current file" })
 	end,
 }
