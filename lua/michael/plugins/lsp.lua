@@ -156,7 +156,7 @@ return {
 				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
 
 				opts.desc = "LSP: View line diagnostics"
-				vim.keymap.set("n", "vd", vim.diagnostic.open_float, opts) -- view diagnostics for line
+				vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts) -- view diagnostics for line
 
 				opts.desc = "LSP: View buffer diagnostics"
 				vim.keymap.set("n", "<leader>vD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- view  diagnostics for file
