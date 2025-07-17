@@ -21,6 +21,9 @@ vim.keymap.set("n", "<C-k>", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  g
 vim.keymap.set("n", "<C-j>", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 vim.keymap.set("n", "<A-k>", "<cmd>+tabm<CR>", { desc = "Move tab to the right" }) --  go to previous tab
 vim.keymap.set("n", "<A-j>", "<cmd>-tabm<CR>", { desc = "Move tab to the left" }) --  go to previous tab
+-- testing adding back in shortcuts I'm used to. Might as well try something else.
+-- vim.keymap.set("n", "<C-S-PageDown>", "<cmd>+tabm<CR>", { desc = "Move tab to the right" }) --  go to previous tab
+-- vim.keymap.set("n", "<C-S-PageUp>", "<cmd>-tabm<CR>", { desc = "Move tab to the left" }) --  go to previous tab
 vim.keymap.set("n", "<leader>td", "<cmd>tabnew %<CR>", { desc = "Duplicate current buffer in new tab" }) --  move current buffer to new tab
 
 -- Search and replace word under cursor
