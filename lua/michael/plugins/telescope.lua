@@ -7,6 +7,10 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"sharkdp/fd",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{
+			"nvim-telescope/telescope-frecency.nvim",
+			version = "*",
+		},
 		-- "folke/todo-comments.nvim",
 	},
 	config = function()
@@ -46,11 +50,17 @@ return {
 		})
 
 		telescope.load_extension("fzf")
+		telescope.load_extension("frecency")
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
 
 		keymap.set("n", "<C-p>", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+		vim.keymap.set("n", "<leader>ff", function()
+			telescope.extensions.frecency.frecency({
+				workspace = "CWD",
+			})
+		end)
 		keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 		keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Find grep string in cwd" })
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })

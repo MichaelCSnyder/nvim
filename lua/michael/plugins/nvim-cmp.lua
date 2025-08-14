@@ -34,6 +34,13 @@ return {
 				luasnip.text_node(")"),
 			}),
 		})
+		luasnip.add_snippets("typescript", {
+			luasnip.snippet("tne", {
+				luasnip.text_node("throw new Error("),
+				luasnip.insert_node(1),
+				luasnip.text_node(")"),
+			}),
+		})
 		luasnip.add_snippets("javascript", {
 			luasnip.snippet("jsf", {
 				luasnip.text_node("JSON.stringify("),
@@ -41,7 +48,21 @@ return {
 				luasnip.text_node(")"),
 			}),
 		})
+		luasnip.add_snippets("typescript", {
+			luasnip.snippet("jsf", {
+				luasnip.text_node("JSON.stringify("),
+				luasnip.insert_node(1),
+				luasnip.text_node(")"),
+			}),
+		})
 		luasnip.add_snippets("javascript", {
+			luasnip.snippet("clg", {
+				luasnip.text_node("console.log("),
+				luasnip.insert_node(1),
+				luasnip.text_node(")"),
+			}),
+		})
+		luasnip.add_snippets("typescript", {
 			luasnip.snippet("clg", {
 				luasnip.text_node("console.log("),
 				luasnip.insert_node(1),

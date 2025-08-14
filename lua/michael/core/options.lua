@@ -50,6 +50,10 @@ vim.opt.splitbelow = true -- split horizontal window to the bottom
 -- stop auto inclusion of new line at the end of files
 vim.opt.fixendofline = false
 
+-- force CRLF line endings for all new files
+vim.opt.fileformats = "dos,unix"
+vim.opt.fileformat = "dos"
+
 -- Remove auto comment continuation on newline
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "*",

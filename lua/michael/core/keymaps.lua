@@ -27,7 +27,7 @@ vim.keymap.set("n", "<A-j>", "<cmd>-tabm<CR>", { desc = "Move tab to the left" }
 vim.keymap.set("n", "<leader>td", "<cmd>tabnew %<CR>", { desc = "Duplicate current buffer in new tab" }) --  move current buffer to new tab
 
 -- Search and replace word under cursor
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+-- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 vim.keymap.set("n", "<leader>du", function()
 	vim.cmd("windo diffupdate")
