@@ -34,8 +34,11 @@ return {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
 						["<C-j>"] = actions.move_selection_next, -- move to next result
-						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist, -- "smart" will add everything to quickfix if nothing is selected or just selections if they are present
 						["<C-h>"] = "which_key",
+					},
+					n = {
+						["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 					},
 				},
 			},
