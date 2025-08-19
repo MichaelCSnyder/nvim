@@ -49,6 +49,15 @@ return {
 					override_file_sorter = true, -- override the file sorter
 					case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 				},
+				frecency = {
+					enable_prompt_mappings = true,
+					matcher = "fuzzy", -- options: "fuzzy" | "substring" | "exact"
+					workspaces = {
+						["code"] = vim.fn.expand("~/Code/RF-SMART/netsuite"),
+						["unit"] = vim.fn.expand("~/Code/RF-SMART/test/unit"),
+						["int"] = vim.fn.expand("~/Code/RF-SMART/test/integration"),
+					},
+				},
 			},
 		})
 
