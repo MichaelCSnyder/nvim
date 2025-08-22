@@ -51,7 +51,7 @@ return {
 				},
 				frecency = {
 					enable_prompt_mappings = true,
-					matcher = "fuzzy", -- options: "fuzzy" | "substring" | "exact"
+					matcher = "default", -- options: "fuzzy" | "default"
 					workspaces = {
 						["code"] = vim.fn.expand("~/Code/RF-SMART/netsuite"),
 						["unit"] = vim.fn.expand("~/Code/RF-SMART/test/unit"),
