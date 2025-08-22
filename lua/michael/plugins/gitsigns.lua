@@ -16,6 +16,12 @@ return {
 			vim.keymap.set("n", "<leader>gB", function()
 				gitsigns.blame_line({ full = true })
 			end, opts)
+
+			opts.desc = "Gitsigns: stage current hunk"
+			vim.keymap.set("n", "<leader>hs", gitsigns.stage_hunk, opts)
+
+			opts.desc = "Gitsigns: stage current buffer"
+			vim.keymap.set("n", "<leader>hS", gitsigns.stage_buffer, opts)
 		end,
 		current_line_blame_opts = {
 			virt_text = true,
