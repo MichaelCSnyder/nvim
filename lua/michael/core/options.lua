@@ -1,7 +1,7 @@
 -- vim.cmd("let g:netrw_liststyle = 3")
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.number = true -- show numbers in gutter
+vim.opt.relativenumber = true -- show numbers relative to current line
 
 vim.opt.cursorline = true -- highlight current line number (and enable the below 2 options to only highlight number)
 vim.opt.cursorlineopt = "number"
@@ -73,7 +73,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- Automatically trigger buffer reload when underlyiiing disk file has changed
+-- Automatically trigger buffer reload when underlying disk file has changed
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
 	callback = function()
 		if vim.bo.buftype == "" then -- Only reload normal file buffers
