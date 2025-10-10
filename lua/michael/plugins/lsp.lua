@@ -53,7 +53,6 @@ return {
 			"ts_ls",
 			"eslint",
 			"jsonls",
-			"html",
 			"cssls",
 			"marksman",
 		}
@@ -71,6 +70,17 @@ return {
 				Lua = {
 					diagnostics = {
 						globals = { "vim" },
+					},
+				},
+			},
+		})
+
+		lspconfig.html.setup({
+			capabilities = capabilities,
+			settings = {
+				html = {
+					format = {
+						extraLiners = "", -- Empty string prevents extra lines around html tags
 					},
 				},
 			},
