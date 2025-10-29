@@ -113,12 +113,13 @@ return {
 					[vim.diagnostic.severity.HINT] = "󰠠 ",
 					[vim.diagnostic.severity.INFO] = " ",
 				},
-				linehl = {
-					[vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-					[vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
-					[vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
-					[vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
-				},
+				-- changes entire line highlight to metch tye type of diagnostic
+				-- linehl = {
+				-- 	[vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+				-- 	[vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+				-- 	[vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+				-- 	[vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+				-- },
 			},
 		})
 
