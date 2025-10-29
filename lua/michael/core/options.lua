@@ -54,6 +54,9 @@ vim.opt.fixendofline = false
 vim.opt.fileformats = "dos,unix"
 vim.opt.fileformat = "dos"
 
+-- turn off swap files (saves unsaved changes in the event of a crash)
+vim.opt.swapfile = false
+
 -- Remove auto comment continuation on newline
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "*",
