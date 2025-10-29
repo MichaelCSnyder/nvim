@@ -87,10 +87,10 @@ return {
 		})
 		----------------------------------------------------------------------------
 		vim.diagnostic.config({
-			signs = true,
 			underline = true,
 			update_in_insert = false,
 			severity_sort = true,
+			-- add persistent trailing diagnostic information to the end of line
 			-- virtual_text = {
 			-- 	prefix = "●",
 			-- },
@@ -102,10 +102,7 @@ return {
 				header = "",
 				prefix = "",
 			},
-		})
-
-		-- Change the Diagnostic symbols in the sign column (gutter) - working on mac but not on linux
-		vim.diagnostic.config({
+			-- Change the Diagnostic symbols in the sign column (gutter) - working on mac but not on linux
 			signs = {
 				text = {
 					[vim.diagnostic.severity.ERROR] = " ",
