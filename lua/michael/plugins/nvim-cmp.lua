@@ -77,6 +77,7 @@ return {
 				}),
 			})
 		end
+
 		for _, fileType in ipairs(snippetFileTypes) do
 			luasnip.add_snippets(fileType, {
 				luasnip.snippet("jsf", {
@@ -86,6 +87,7 @@ return {
 				}),
 			})
 		end
+
 		for _, fileType in ipairs(snippetFileTypes) do
 			luasnip.add_snippets(fileType, {
 				luasnip.snippet("clg", {
@@ -95,6 +97,7 @@ return {
 				}),
 			})
 		end
+
 		for _, fileType in ipairs(snippetFileTypes) do
 			luasnip.add_snippets(fileType, {
 				luasnip.snippet("dnl", {
