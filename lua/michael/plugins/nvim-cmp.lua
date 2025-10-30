@@ -23,53 +23,6 @@ return {
 
 		local lspkind = require("lspkind")
 
-		-- load default vscode style snippets from installed plugins (e.g. friendly-snippets)
-		require("luasnip.loaders.from_vscode").lazy_load()
-
-		-- define custom snippets
-		luasnip.add_snippets("javascript", {
-			luasnip.snippet("tne", {
-				luasnip.text_node("throw new Error("),
-				luasnip.insert_node(1),
-				luasnip.text_node(")"),
-			}),
-		})
-		luasnip.add_snippets("typescript", {
-			luasnip.snippet("tne", {
-				luasnip.text_node("throw new Error("),
-				luasnip.insert_node(1),
-				luasnip.text_node(")"),
-			}),
-		})
-		luasnip.add_snippets("javascript", {
-			luasnip.snippet("jsf", {
-				luasnip.text_node("JSON.stringify("),
-				luasnip.insert_node(1),
-				luasnip.text_node(")"),
-			}),
-		})
-		luasnip.add_snippets("typescript", {
-			luasnip.snippet("jsf", {
-				luasnip.text_node("JSON.stringify("),
-				luasnip.insert_node(1),
-				luasnip.text_node(")"),
-			}),
-		})
-		luasnip.add_snippets("javascript", {
-			luasnip.snippet("clg", {
-				luasnip.text_node("console.log("),
-				luasnip.insert_node(1),
-				luasnip.text_node(")"),
-			}),
-		})
-		luasnip.add_snippets("typescript", {
-			luasnip.snippet("clg", {
-				luasnip.text_node("console.log("),
-				luasnip.insert_node(1),
-				luasnip.text_node(")"),
-			}),
-		})
-
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview",
@@ -105,5 +58,49 @@ return {
 				}),
 			},
 		})
+
+		-- load default vscode style snippets from installed plugins (e.g. friendly-snippets)
+		require("luasnip.loaders.from_vscode").lazy_load()
+
+		-- define custom snippets
+		local snippetFileTypes = {
+			"javascript",
+			"typescript",
+		}
+
+		for _, fileType in ipairs(snippetFileTypes) do
+			luasnip.add_snippets(fileType, {
+				luasnip.snippet("tne", {
+					luasnip.text_node("throw new Error("),
+					luasnip.insert_node(1),
+					luasnip.text_node(")"),
+				}),
+			})
+		end
+		for _, fileType in ipairs(snippetFileTypes) do
+			luasnip.add_snippets(fileType, {
+				luasnip.snippet("jsf", {
+					luasnip.text_node("JSON.stringify("),
+					luasnip.insert_node(1),
+					luasnip.text_node(")"),
+				}),
+			})
+		end
+		for _, fileType in ipairs(snippetFileTypes) do
+			luasnip.add_snippets(fileType, {
+				luasnip.snippet("clg", {
+					luasnip.text_node("console.log("),
+					luasnip.insert_node(1),
+					luasnip.text_node(")"),
+				}),
+			})
+		end
+		for _, fileType in ipairs(snippetFileTypes) do
+			luasnip.add_snippets(fileType, {
+				luasnip.snippet("dnl", {
+					luasnip.text_node("// eslint-disable-next-line @stylistic/js/max-len"),
+				}),
+			})
+		end
 	end,
 }
