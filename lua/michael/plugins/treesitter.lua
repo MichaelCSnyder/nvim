@@ -11,15 +11,15 @@ return {
 
 		-- configure treesitter
 		treesitter.setup({ -- enable syntax highlighting
+			modules = {},
+			sync_install = false,
+			ignore_install = {},
+			auto_install = true,
 			highlight = {
 				enable = true,
 			},
 			-- enable indentation (appears to mess around with fn layer indentation)
 			-- indent = { enable = true },
-			-- enable autotagging (w/ nvim-ts-autotag plugin)
-			autotag = {
-				enable = true,
-			},
 			-- ensure these language parsers are installed
 			ensure_installed = {
 				"bash",
@@ -50,6 +50,14 @@ return {
 					scope_incremental = false,
 					node_decremental = "<bs>",
 				},
+			},
+		})
+
+		require("nvim-ts-autotag").setup({
+			opts = {
+				enable_close = true, -- Auto close tags
+				enable_rename = true, -- Auto rename pairs of tags
+				enable_close_on_slash = true, -- Auto close on trailing </
 			},
 		})
 	end,
