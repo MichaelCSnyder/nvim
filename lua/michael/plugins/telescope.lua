@@ -12,6 +12,7 @@ return {
 			version = "*",
 		},
 		-- "folke/todo-comments.nvim",
+		"nvim-telescope/telescope-live-grep-args.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -66,8 +67,9 @@ return {
 			},
 		})
 
-		telescope.load_extension("fzf")
-		telescope.load_extension("frecency")
+		telescope.load_extension("fzf") -- fuzzy finder sorting algorithm that replace default lua sorter
+		telescope.load_extension("frecency") -- applies frequency-based scoring (using internal frequency database) prior to handing off results to fzf
+		telescope.load_extension("live_grep_args") -- allows you to pass arguments (for file types, directories, etc.) to ripgrep during global searches
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
@@ -79,7 +81,11 @@ return {
 			})
 		end)
 		keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-		keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Find grep string in cwd" })
+		-- keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Find grep string in cwd" })
+		-- run "Man rg" to see params to pass to live_grep
+		vim.keymap.set("n", "<leader>fg", function()
+			require("telescope").extensions.live_grep_args.live_grep_args()
+		end)
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 		keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Find document symbols" })
 		keymap.set("n", "<leader>fb", builtin.git_bcommits, { desc = "Find string under cursor in cwd" })
