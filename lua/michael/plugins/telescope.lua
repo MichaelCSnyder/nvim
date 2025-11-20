@@ -56,6 +56,8 @@ return {
 					show_unindexed = true, -- Shows files not yet in the database
 					db_root = vim.fn.stdpath("data"), -- Explicitly set database location
 					workspaces = {
+						--  utilize with syntax: ":code:"
+						--  alternatively, ":<tab>" to open list
 						["code"] = vim.fn.expand("~/Code/RF-SMART/netsuite"),
 						["unit"] = vim.fn.expand("~/Code/RF-SMART/test/unit"),
 						["int"] = vim.fn.expand("~/Code/RF-SMART/test/integration"),
