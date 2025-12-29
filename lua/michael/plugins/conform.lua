@@ -8,11 +8,9 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 			},
-			-- since prettierd isn't configured for js files, we will automatically fall back to the eslint LSP.
-			format_on_save = {
+			format_after_save = {
 				-- prefer conform formatters for file types (immediately falls back to LSP if a formatter doesn't exist for file type so no lag)
 				lsp_format = "fallback", -- prefer formatting with configured formatters_by_ft above
-				async = false,
 				timeout_ms = 200,
 				filter = function(client) -- only run on LSP fallback to decide which LSP to format with
 					local bufnr = vim.api.nvim_get_current_buf()
