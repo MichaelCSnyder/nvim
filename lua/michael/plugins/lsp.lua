@@ -42,10 +42,9 @@ return {
 				"marksman",
 				"eslint",
 			},
-			automatic_enable = false, -- elect to setup servers myself to be able to pass cmp (autocomplete) capabilities
+			automatic_enable = true, -- nvim's native lsp client seems to prevent duplicate servers from running that I was experiencing before
 		})
 
-		local lspconfig = require("lspconfig")
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		---------------- setup LSPs with default configs -------------
@@ -58,13 +57,13 @@ return {
 		}
 
 		for _, server in ipairs(standard_config_servers) do
-			lspconfig[server].setup({
+			vim.lsp.config(server, {
 				capabilities = capabilities, -- allows autocompletion to source LSP data
 			})
 		end
 
 		------------------------ setup LSPs with custom configs --------------------
-		lspconfig.lua_ls.setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			settings = {
 				Lua = {
@@ -75,12 +74,12 @@ return {
 			},
 		})
 
-		lspconfig.html.setup({
+		vim.lsp.config("html", {
 			capabilities = capabilities,
 			settings = {
 				html = {
 					format = {
-						extraLiners = "", -- Empty string prevents extra lines around html tags
+						extraLiners = "",
 					},
 				},
 			},
