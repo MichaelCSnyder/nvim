@@ -79,7 +79,7 @@ return {
 			settings = {
 				html = {
 					format = {
-						extraLiners = "",
+						extraLiners = "", -- Empty string prevents extra lines around html tags
 					},
 				},
 			},
