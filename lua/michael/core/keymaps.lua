@@ -29,6 +29,9 @@ vim.keymap.set("n", "<leader>td", "<cmd>tabnew %<CR>", { desc = "Duplicate curre
 -- Search and replace word under cursor
 -- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- prevent ctrl-z from suspending neovim
+vim.keymap.set({ "n", "v", "s" }, "<C-z>", "<Nop>")
+
 vim.keymap.set("n", "<leader>du", function()
 	vim.cmd("windo diffupdate")
 	vim.cmd("windo redraw")
