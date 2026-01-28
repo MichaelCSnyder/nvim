@@ -66,6 +66,7 @@ return {
 		local snippetFileTypes = {
 			"javascript",
 			"typescript",
+			"typescriptreact",
 		}
 
 		for _, fileType in ipairs(snippetFileTypes) do
