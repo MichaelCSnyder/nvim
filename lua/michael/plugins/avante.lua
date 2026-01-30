@@ -88,7 +88,7 @@ return {
 			},
 			input = {
 				prefix = "> ",
-				height = 8, -- Height of the input window in vertical layout
+				height = 10, -- Height of the input window in vertical layout
 			},
 			edit = {
 				border = "rounded",
