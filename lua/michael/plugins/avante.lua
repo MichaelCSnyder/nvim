@@ -20,15 +20,23 @@ return {
 		},
 	},
 	opts = {
+		mode = "legacy", -- use "agentic" for multi-file, multi-step abstract tasks
 		hints = {
 			enabled = false, -- Disable inline hints
 		},
 		provider = "bedrock",
 		providers = {
 			bedrock = {
-				model = "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+				-- model = "
+				-- model = "us.anthropic.claude-opus-4-5-20251101-v1:0", -- best but slowest
+				model = "us.anthropic.claude-sonnet-4-5-20250929-v1:0", -- best balance: Nearly Opus quality, much faster
+				-- model = "us.anthropic.claude-haiku-4-5-20251001-v1:0", -- fastest but less capable
 				aws_profile = "rfs-ai",
 				aws_region = "us-east-1",
+				extra_request_body = {
+					max_tokens = 4096,
+					temperature = 0.3,
+				},
 			},
 		},
 		selection = {
