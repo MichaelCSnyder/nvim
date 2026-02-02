@@ -21,6 +21,7 @@ return {
 	},
 	opts = {
 		mode = "legacy", -- use "agentic" for multi-file, multi-step abstract tasks
+		instructions_file = "avante-instructions.md",
 		hints = {
 			enabled = false, -- Disable inline hints
 		},
