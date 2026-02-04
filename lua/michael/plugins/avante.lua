@@ -21,10 +21,7 @@ return {
 	},
 	opts = {
 		mode = "legacy", -- use "agentic" for multi-file, multi-step abstract tasks
-		instructions_file = "avante-instructions.md",
-		hints = {
-			enabled = false, -- Disable inline hints
-		},
+		instructions_file = "avante.md",
 		provider = "bedrock",
 		providers = {
 			bedrock = {
@@ -40,8 +37,41 @@ return {
 				},
 			},
 		},
+		behaviour = {
+			auto_suggestions = false, -- Experimental stage
+			auto_set_highlight_group = true,
+			auto_set_keymaps = true,
+			auto_apply_diff_after_generation = false,
+			support_paste_from_clipboard = false,
+			minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
+			enable_token_counting = true, -- Whether to enable token counting. Default to true.
+			auto_add_current_file = true, -- Whether to automatically add the current file when opening a new chat. Default to true.
+			auto_approve_tool_permissions = true, -- Default: auto-approve all tools (no prompts)
+			-- Examples:
+			-- auto_approve_tool_permissions = false,                -- Show permission prompts for all tools
+			-- auto_approve_tool_permissions = {"bash", "str_replace"}, -- Auto-approve specific tools only
+			---@type "popup" | "inline_buttons"
+			confirmation_ui_style = "inline_buttons",
+			--- Whether to automatically open files and navigate to lines when ACP agent makes edits
+			---@type boolean
+			acp_follow_agent_locations = true,
+		},
 		selection = {
-			enabled = false, -- turn off visual mode hints
+			enabled = true, -- turn off visual mode hints
+			hint_display = "none",
+		},
+		prompt_logger = { -- logs prompts to disk (timestamped, for replay/debugging)
+			enabled = false, -- toggle logging entirely
+			log_dir = vim.fn.stdpath("cache") .. "/avante_prompts", -- directory where logs are saved
+			fortune_cookie_on_success = false, -- shows a random fortune after each logged prompt (requires `fortune` installed)
+			next_prompt = {
+				normal = "<C-n>", -- load the next (newer) prompt log in normal mode
+				insert = "<C-n>",
+			},
+			prev_prompt = {
+				normal = "<C-p>", -- load the previous (older) prompt log in normal mode
+				insert = "<C-p>",
+			},
 		},
 		windows = {
 			---@type "right" | "left" | "top" | "bottom"
