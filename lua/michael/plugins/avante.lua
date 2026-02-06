@@ -25,7 +25,6 @@ return {
 		provider = "bedrock",
 		providers = {
 			bedrock = {
-				-- model = "
 				-- model = "us.anthropic.claude-opus-4-5-20251101-v1:0", -- best but slowest
 				model = "us.anthropic.claude-sonnet-4-5-20250929-v1:0", -- best balance: Nearly Opus quality, much faster
 				-- model = "us.anthropic.claude-haiku-4-5-20251001-v1:0", -- fastest but less capable
@@ -57,8 +56,8 @@ return {
 			acp_follow_agent_locations = true,
 		},
 		selection = {
-			enabled = true, -- turn off visual mode hints
-			hint_display = "none",
+			enabled = true,
+			hint_display = "none", -- turn off visual mode hints
 		},
 		prompt_logger = { -- logs prompts to disk (timestamped, for replay/debugging)
 			enabled = false, -- toggle logging entirely
@@ -79,7 +78,7 @@ return {
 			wrap = true, -- similar to vim.o.wrap
 			width = 30, -- default % based on available width
 			sidebar_header = {
-				enabled = true, -- true, false to enable/disable the header
+				enabled = false, -- true, false to enable/disable the header
 				align = "center", -- left, center, right for title
 				rounded = true,
 			},
