@@ -140,6 +140,38 @@ return {
 				focus_on_apply = "ours", -- which diff to focus after applying
 			},
 		},
+		shortcuts = {
+			{
+				name = "prsummary",
+				description = "Generate PR Summary",
+				details = "Generate PR summary of changes made in the current branch",
+				prompt = [[
+					## Generate PR summary of changes made on the current branch since divergence from master. 
+					**Structure**:
+					- Summary: Brief what and why
+					- Solution: Detailed approach
+					- Key Implementation Details: Decisions, edge cases, non-obvious behavior
+
+					**Exclude**: Tests, research, debugging, iterations
+					**Focus**: Final solution, architectural decisions, integrations
+				]],
+			},
+			{
+				name = "prreview",
+				description = "Review PR",
+				details = "Performs a thorough review of changes made on current branch",
+				prompt = [[
+					## Perform a thorough review of the changes made on the current branch since divergence from master. 
+					- verify changes are sufficient at accomplishing the task (feature implementation, bug fix, etc.)
+						- feel free to ask for questions at the outset if you are not able to infer the intent of the changes
+					- verify code/test changes/additions adhere to standards outlined in the "Avante Instructions for RF-SMART" document
+					- verify test coverage completely covers the changes that were made
+						- changes to a helper function must be tested through all of its consumers
+						- verify edge/corner cases
+					- at end of response, provide a tldr summary of suggested changes
+				]],
+			},
+		},
 	},
 	keys = {
 		-- { "<leader>aa", ":AvanteAsk<CR>", desc = "Avante Ask" },
