@@ -1,4 +1,13 @@
 -- see default configuration section of repo for full list of config options
+
+local cursor_agent_cmd = vim.fn.exepath("cursor-agent")
+if cursor_agent_cmd == "" then
+	cursor_agent_cmd = vim.fn.exepath("agent")
+end
+if cursor_agent_cmd == "" then
+	cursor_agent_cmd = "cursor-agent"
+end
+
 return {
 	"yetone/avante.nvim",
 	event = "VeryLazy",
@@ -19,22 +28,36 @@ return {
 		},
 	},
 	opts = {
-		mode = "legacy", -- use "agentic" for multi-file, multi-step abstract tasks
+		mode = "legacy",
 		instructions_file = "avante.md",
-		provider = "bedrock",
-		providers = {
-			bedrock = {
-				-- model = "us.anthropic.claude-opus-4-5-20251101-v1:0", -- best but slowest
-				model = "us.anthropic.claude-sonnet-4-5-20250929-v1:0", -- best balance: Nearly Opus quality, much faster
-				-- model = "us.anthropic.claude-haiku-4-5-20251001-v1:0", -- fastest but less capable
-				aws_profile = "rfs-ai",
-				aws_region = "us-east-1",
-				extra_request_body = {
-					max_tokens = 4096,
-					temperature = 0.3,
+		provider = "cursor",
+		acp_providers = {
+			cursor = {
+				command = cursor_agent_cmd,
+				args = { "acp" },
+				auth_method = "cursor_login",
+				env = {
+					HOME = os.getenv("HOME"),
+					PATH = os.getenv("PATH"),
 				},
 			},
 		},
+		-- mode = "legacy", -- use "agentic" for multi-file, multi-step abstract tasks
+		-- instructions_file = "avante.md",
+		-- provider = "bedrock",
+		-- providers = {
+		-- 	bedrock = {
+		-- 		-- model = "us.anthropic.claude-opus-4-5-20251101-v1:0", -- best but slowest
+		-- 		model = "us.anthropic.claude-sonnet-4-5-20250929-v1:0", -- best balance: Nearly Opus quality, much faster
+		-- 		-- model = "us.anthropic.claude-haiku-4-5-20251001-v1:0", -- fastest but less capable
+		-- 		aws_profile = "rfs-ai",
+		-- 		aws_region = "us-east-1",
+		-- 		extra_request_body = {
+		-- 			max_tokens = 4096,
+		-- 			temperature = 0.3,
+		-- 		},
+		-- 	},
+		-- },
 		behaviour = {
 			auto_suggestions = false, -- Experimental stage
 			auto_set_highlight_group = true,

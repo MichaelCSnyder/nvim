@@ -57,6 +57,13 @@ vim.opt.fileformat = "dos"
 -- turn off swap files (saves unsaved changes in the event of a crash)
 vim.opt.swapfile = false
 
+-- Cursor rules (.mdc): same filetype as Markdown so treesitter + render-markdown.nvim apply
+vim.filetype.add({
+	extension = {
+		mdc = "markdown",
+	},
+})
+
 -- Remove auto comment continuation on newline
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "*",
