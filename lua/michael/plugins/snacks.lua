@@ -1,7 +1,6 @@
 return {
 	"folke/snacks.nvim",
 	opts = {
-		-- Disable everything else
 		bigfile = { enabled = false },
 		notifier = { enabled = false },
 		quickfile = { enabled = false },
@@ -9,11 +8,19 @@ return {
 		words = { enabled = false },
 		styles = {},
 
-		-- Only enable the picker
-		picker = { enabled = true },
+		picker = {
+			enabled = true,
+			win = {
+				input = {
+					keys = {
+						["<C-d>"] = { "preview_scroll_down", mode = { "i", "n" } },
+						["<C-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
+					},
+				},
+			},
+		},
 	},
 	keys = {
-		-- Set up the keybinding for git log of current file
 		-- {
 		-- 	"<leader>gB",
 		-- 	function()
