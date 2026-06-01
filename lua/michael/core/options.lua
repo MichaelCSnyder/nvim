@@ -91,3 +91,10 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
 		end
 	end,
 })
+
+-- Manually set endofline to false for each buffer to make sure eol character is not added
+vim.api.nvim_create_autocmd("BufWritePre", {
+	callback = function()
+		vim.bo.eol = false
+	end,
+})

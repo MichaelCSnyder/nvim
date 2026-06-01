@@ -52,6 +52,6 @@ return {
 			},
 		})
 
-		-- vim.keymap.set("n", "<leader>aa", "<cmd>CursorAgent<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>aa", "<cmd>CursorAgent<CR>", { noremap = true, silent = true })
 	end,
 }
