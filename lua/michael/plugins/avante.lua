@@ -26,11 +26,34 @@ return {
 	-- 		},
 	-- 		ft = { "markdown", "Avante" },
 	-- 	},
+	-- 	{
+	-- 		"HakonHarnes/img-clip.nvim",
+	-- 		event = "VeryLazy",
+	-- 		opts = {
+	-- 			default = {
+	-- 				embed_image_as_base64 = false,
+	-- 				prompt_for_file_name = false,
+	-- 				drag_and_drop = { insert_mode = true },
+	-- 			},
+	-- 		},
+	-- 		keys = {
+	-- 			{
+	-- 				"<leader>ip",
+	-- 				function()
+	-- 					require("avante.clipboard").paste_image()
+	-- 				end,
+	-- 				desc = "avante: paste image from clipboard",
+	-- 			},
+	-- 		},
+	-- 	},
 	-- },
 	-- opts = {
 	-- 	mode = "agentic",
 	-- 	instructions_file = "avante.md",
 	-- 	provider = "cursor",
+	-- 	history = { -- 👈 add here
+	-- 		storage_path = "/tmp/avante",
+	-- 	},
 	-- 	acp_providers = {
 	-- 		cursor = {
 	-- 			command = cursor_agent_cmd,
@@ -63,11 +86,11 @@ return {
 	-- 		auto_set_highlight_group = true,
 	-- 		auto_set_keymaps = true,
 	-- 		auto_apply_diff_after_generation = false,
-	-- 		support_paste_from_clipboard = false,
+	-- 		support_paste_from_clipboard = true,
 	-- 		minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
 	-- 		enable_token_counting = true, -- Whether to enable token counting. Default to true.
 	-- 		auto_add_current_file = true, -- Whether to automatically add the current file when opening a new chat. Default to true.
-	-- 		auto_approve_tool_permissions = true, -- Default: auto-approve all tools (no prompts)
+	-- 		auto_approve_tool_permissions = false, -- Default: auto-approve all tools (no prompts)
 	-- 		-- Examples:
 	-- 		-- auto_approve_tool_permissions = false,                -- Show permission prompts for all tools
 	-- 		-- auto_approve_tool_permissions = {"bash", "str_replace"}, -- Auto-approve specific tools only
@@ -196,6 +219,6 @@ return {
 	-- 	},
 	-- },
 	-- keys = {
-	-- 	-- { "<leader>aa", ":AvanteAsk<CR>", desc = "Avante Ask" },
+	-- 	{ "<leader>Aa", ":AvanteAsk<CR>", desc = "Avante Ask" },
 	-- },
 }
