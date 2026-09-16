@@ -49,7 +49,6 @@ return {
 
 		---------------- setup LSPs with default configs -------------
 		local standard_config_servers = {
-			"ts_ls",
 			"eslint",
 			"jsonls",
 			"cssls",
@@ -81,6 +80,37 @@ return {
 					format = {
 						extraLiners = "", -- Empty string prevents extra lines around html tags
 					},
+				},
+			},
+		})
+
+		local rfsmart_format = {
+			convertTabsToSpaces = false,
+			indentStyle = "Smart",
+
+			insertSpaceBeforeFunctionParenthesis = true,
+			insertSpaceAfterFunctionKeywordForAnonymousFunctions = true,
+			insertSpaceAfterKeywordsInControlFlowStatements = true,
+			insertSpaceBeforeAndAfterBinaryOperators = true,
+			insertSpaceAfterCommaDelimiter = true,
+			insertSpaceAfterSemicolonInForStatements = true,
+			insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
+
+			placeOpenBraceOnNewLineForFunctions = false,
+			placeOpenBraceOnNewLineForControlBlocks = false,
+
+			semicolons = "insert",
+			trimTrailingWhitespace = true,
+		}
+
+		vim.lsp.config("ts_ls", {
+			capabilities = capabilities,
+			settings = {
+				typescript = {
+					format = rfsmart_format,
+				},
+				javascript = {
+					format = rfsmart_format,
 				},
 			},
 		})
